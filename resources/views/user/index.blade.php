@@ -27,10 +27,14 @@
                     <td><span class="badge {{ $u->role==='admin' ? 'warning' : 'primary' }} dot">{{ ucfirst($u->role) }}</span></td>
                     <td style="color:var(--t-muted)">{{ $u->peminjaman_count }}</td>
                     <td style="text-align:right">
-                        <a href="{{ route('user.edit', $u) }}" class="btn btn--sm btn--ghost">Edit</a>
-                        @if($u->id !== auth()->id())
-                        <form action="{{ route('user.destroy', $u) }}" method="POST" style="display:inline" onsubmit="return confirm('Yakin hapus?')">@csrf @method('DELETE')<button class="btn btn--sm btn--outline-danger">Hapus</button></form>
-                        @endif
+                        <div style="display:inline-flex;align-items:center;gap:6px">
+                            <a href="{{ route('user.edit', $u) }}" class="btn btn--sm btn--ghost">Edit</a>
+                            @if($u->id !== auth()->id())
+                            <form action="{{ route('user.destroy', $u) }}" method="POST" style="display:inline" onsubmit="return confirm('Yakin hapus?')">@csrf @method('DELETE')<button class="btn btn--sm btn--outline-danger">Hapus</button></form>
+                            @else
+                            <span style="display:inline-block;width:57px"></span>
+                            @endif
+                        </div>
                     </td>
                 </tr>
                 @empty

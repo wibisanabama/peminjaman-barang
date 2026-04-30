@@ -64,7 +64,7 @@ body{font-family:'Inter',system-ui,-apple-system,sans-serif;font-weight:400;back
 .nav-link>svg{width:17px;height:17px;stroke:currentColor;stroke-width:1.75;fill:none;flex-shrink:0;stroke-linecap:round;stroke-linejoin:round}
 .nav-link>span{min-width:0;flex:1}
 .nav-link:hover{background:var(--bg-hover);color:var(--t-base)}
-.nav-link.is-active{color:var(--primary);background:var(--primary-soft);box-shadow:inset 3px 0 0 var(--primary)}
+.nav-link.is-active{color:var(--primary);background:var(--primary-soft)}
 .sidebar-footer{margin-top:auto;padding-top:16px;border-top:1px solid var(--border-soft)}
 .workspace{display:flex;align-items:center;gap:10px;padding:6px 10px;border-radius:8px;transition:background-color 180ms ease}
 .workspace:hover{background:var(--bg-hover)}
