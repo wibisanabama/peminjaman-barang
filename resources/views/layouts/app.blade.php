@@ -76,9 +76,7 @@
                     <span class="sep">›</span>
                     <span class="current">{{ $header ?? 'Dashboard' }}</span>
                 </div>
-                <div class="topbar-actions">
-                    <span class="badge {{ auth()->user()->isAdmin() ? 'warning' : 'primary' }} dot">{{ ucfirst(auth()->user()->role) }}</span>
-                </div>
+                <div class="topbar-actions"></div>
             </header>
 
             <main class="content">
