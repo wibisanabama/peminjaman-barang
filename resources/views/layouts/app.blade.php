@@ -90,48 +90,30 @@
     </div>
 
     <!-- Toast Notifications -->
-    <div id="toast-container" style="position:fixed;top:148px;right:32px;z-index:9999;display:flex;flex-direction:column;gap:10px;pointer-events:none">
+    <div id="toast-container" style="position:fixed;top:76px;right:32px;z-index:9999;display:flex;flex-direction:column;gap:10px;pointer-events:none">
         @if(session('success'))
-        <div class="toast toast-success" id="toast-s" style="pointer-events:all">
-            <svg style="width:16px;height:16px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div class="toast toast-success" id="toast-s">
             <span>{{ session('success') }}</span>
-            <button onclick="this.closest('.toast').remove()" style="background:none;border:none;cursor:pointer;color:inherit;font-size:14px;padding:0 0 0 8px;opacity:.7">✕</button>
         </div>
         @endif
         @if(session('error'))
-        <div class="toast toast-danger" id="toast-e" style="pointer-events:all">
-            <svg style="width:16px;height:16px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div class="toast toast-danger" id="toast-e">
             <span>{{ session('error') }}</span>
-            <button onclick="this.closest('.toast').remove()" style="background:none;border:none;cursor:pointer;color:inherit;font-size:14px;padding:0 0 0 8px;opacity:.7">✕</button>
         </div>
         @endif
         @if($errors->any())
-        <div class="toast toast-danger" id="toast-err" style="pointer-events:all">
-            <svg style="width:16px;height:16px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div class="toast toast-danger" id="toast-err">
             <div>@foreach($errors->all() as $e)<div>{{ $e }}</div>@endforeach</div>
         </div>
         @endif
     </div>
     <script>
     function toggleSidebar(){document.body.classList.toggle('has-drawer-open')}
-    function positionToast(){
-        const btn = document.querySelector('.hero-actions');
-        const tc = document.getElementById('toast-container');
-        if(!tc) return;
-        if(btn){
-            const r = btn.getBoundingClientRect();
-            tc.style.top = (r.top - tc.offsetHeight - 15) + 'px';
-        } else {
-            tc.style.top = '148px';
-        }
-    }
-    positionToast();
-    window.addEventListener('resize', positionToast);
     setTimeout(()=>{
         document.querySelectorAll('#toast-s,#toast-e').forEach(t=>{
             t.style.transition='opacity .5s,transform .5s';
             t.style.opacity='0';
-            t.style.transform='translateY(-12px)';
+            t.style.transform='translateY(12px)';
             setTimeout(()=>t.remove(),500);
         });
     },4000);

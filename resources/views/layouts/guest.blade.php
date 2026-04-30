@@ -32,13 +32,6 @@
                 @endif
             </div>
             <div class="auth-card">
-                @if($errors->any())
-                <div class="alert danger" style="margin-bottom:18px">
-                    <div>
-                        @foreach($errors->all() as $e)<div>{{ $e }}</div>@endforeach
-                    </div>
-                </div>
-                @endif
                 @yield('content')
             </div>
         </div>
