@@ -11,9 +11,9 @@
     </div>
 </div>
 <div class="card">
-    <div class="table-scroll">
+    <div class="table-scroll" style="max-height:361px;overflow-y:auto">
         <table class="table">
-            <thead><tr>
+            <thead style="position:sticky;top:0;background:var(--bg-card);z-index:1"><tr>
                 <th>#</th><th>Peminjam</th>
                 @if(auth()->user()->isAdmin())<th>User</th>@endif
                 <th>Jumlah</th><th>Tgl Pinjam</th><th>Tgl Kembali</th><th>Status</th><th style="text-align:right">Aksi</th>
@@ -33,7 +33,7 @@
                     </td>
                 </tr>
                 @empty
-                <tr><td colspan="{{ auth()->user()->isAdmin() ? 8 : 7 }}" style="text-align:center;padding:32px;color:var(--t-muted)">Belum ada peminjaman. <a href="{{ route('peminjaman.create') }}" style="color:var(--primary);font-weight:600">Buat sekarang</a></td></tr>
+                <tr><td colspan="{{ auth()->user()->isAdmin() ? 8 : 7 }}" style="text-align:center;padding:32px;color:var(--t-muted)">Belum ada peminjaman.</td></tr>
                 @endforelse
             </tbody>
         </table>

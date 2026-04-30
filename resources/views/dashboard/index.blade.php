@@ -6,12 +6,6 @@
         <h1 class="hero-title">Selamat datang, <span class="accent">{{ auth()->user()->username }}</span></h1>
         <p class="hero-sub">Ringkasan data inventaris dan peminjaman barang Anda.</p>
     </div>
-    <div class="hero-actions">
-        <a href="{{ route('peminjaman.create') }}" class="btn btn--primary">
-            <svg viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
-            Buat Peminjaman
-        </a>
-    </div>
 </div>
 
 <div class="grid" style="margin-bottom:24px">
@@ -33,35 +27,36 @@
     </div></div>
 </div>
 
-<div class="grid" style="align-items:stretch">
-    <div class="col-6" style="display:flex;flex-direction:column">
-        <div class="card" style="flex:1">
+<div class="grid" style="align-items:start">
+    <div class="col-6">
+        <div class="card" style="height:240px;display:flex;flex-direction:column;overflow:hidden">
             <div class="card-head">
                 <div class="card-title-wrap"><h3 class="card-title">Peminjaman Terbaru</h3></div>
-                <a href="{{ route('peminjaman.index') }}" class="card-action">Lihat Semua →</a>
             </div>
-            @forelse($peminjamanTerbaru as $p)
-            <div class="item-row">
-                <div class="item-icon" style="background:{{ $p->tgl_kembali ? 'var(--success-soft)' : 'var(--warning-soft)' }};color:{{ $p->tgl_kembali ? 'var(--success)' : 'var(--warning)' }}">
-                    @if($p->tgl_kembali)
-                    <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
-                    @else
-                    <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    @endif
+            <div style="overflow-y:auto;flex:1;min-height:0">
+                @forelse($peminjamanTerbaru as $p)
+                <div class="item-row">
+                    <div class="item-icon" style="background:{{ $p->tgl_kembali ? 'var(--success-soft)' : 'var(--warning-soft)' }};color:{{ $p->tgl_kembali ? 'var(--success)' : 'var(--warning)' }}">
+                        @if($p->tgl_kembali)
+                        <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                        @else
+                        <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        @endif
+                    </div>
+                    <div class="item-info">
+                        <div class="item-name">{{ $p->nama_peminjam }}</div>
+                        <div class="item-meta">{{ $p->jumlah_item }} item · {{ $p->tgl_pinjam->format('d M Y') }}</div>
+                    </div>
+                    <span class="badge {{ $p->tgl_kembali ? 'success' : 'warning' }} dot">{{ $p->tgl_kembali ? 'Kembali' : 'Dipinjam' }}</span>
                 </div>
-                <div class="item-info">
-                    <div class="item-name">{{ $p->nama_peminjam }}</div>
-                    <div class="item-meta">{{ $p->jumlah_item }} item · {{ $p->tgl_pinjam->format('d M Y') }}</div>
-                </div>
-                <span class="badge {{ $p->tgl_kembali ? 'success' : 'warning' }} dot">{{ $p->tgl_kembali ? 'Kembali' : 'Dipinjam' }}</span>
+                @empty
+                <div style="text-align:center;padding:32px 0;color:var(--t-muted);font-size:13px">Belum ada data peminjaman.</div>
+                @endforelse
             </div>
-            @empty
-            <div style="text-align:center;padding:32px 0;color:var(--t-muted);font-size:13px">Belum ada data peminjaman.</div>
-            @endforelse
         </div>
     </div>
-    <div class="col-6" style="display:flex;flex-direction:column">
-        <div class="card" style="flex:1">
+    <div class="col-6">
+        <div class="card">
             <div class="card-head">
                 <div class="card-title-wrap"><h3 class="card-title">Ringkasan</h3></div>
             </div>
@@ -91,4 +86,5 @@
         </div>
     </div>
 </div>
+
 @endsection

@@ -1,6 +1,6 @@
 @extends('layouts.app', ['header' => 'Detail Peminjaman', 'title' => 'Detail Peminjaman - Inventory'])
 @section('content')
-<div style="max-width:720px">
+<div>
     <a href="{{ route('peminjaman.index') }}" class="btn btn--ghost btn--sm" style="margin-bottom:20px">← Kembali</a>
 
     <div class="card" style="margin-bottom:20px">
