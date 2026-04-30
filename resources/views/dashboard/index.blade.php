@@ -33,9 +33,9 @@
     </div></div>
 </div>
 
-<div class="grid">
-    <div class="col-6">
-        <div class="card">
+<div class="grid" style="align-items:stretch">
+    <div class="col-6" style="display:flex;flex-direction:column">
+        <div class="card" style="flex:1">
             <div class="card-head">
                 <div class="card-title-wrap"><h3 class="card-title">Peminjaman Terbaru</h3></div>
                 <a href="{{ route('peminjaman.index') }}" class="card-action">Lihat Semua →</a>
@@ -60,8 +60,8 @@
             @endforelse
         </div>
     </div>
-    <div class="col-6">
-        <div class="card">
+    <div class="col-6" style="display:flex;flex-direction:column">
+        <div class="card" style="flex:1">
             <div class="card-head">
                 <div class="card-title-wrap"><h3 class="card-title">Ringkasan</h3></div>
             </div>
