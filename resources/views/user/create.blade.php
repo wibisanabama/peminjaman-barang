@@ -1,6 +1,6 @@
 @extends('layouts.app', ['header' => 'Tambah User', 'title' => 'Tambah User - Inventory'])
 @section('content')
-<div style="max-width:640px">
+<div>
     <a href="{{ route('user.index') }}" class="btn btn--ghost btn--sm" style="margin-bottom:20px">← Kembali</a>
     <div class="card">
         <div class="card-head"><div class="card-title-wrap"><h3 class="card-title">Tambah User</h3></div></div>

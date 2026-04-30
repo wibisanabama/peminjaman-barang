@@ -11,7 +11,7 @@
     </div>
 </div>
 <div class="card">
-    <div class="table-scroll" style="max-height:361px;overflow-y:auto">
+    <div class="table-scroll" style="height:475px;overflow-y:auto">
         <table class="table">
             <thead style="position:sticky;top:0;background:var(--bg-card);z-index:1"><tr>
                 <th>#</th><th>Peminjam</th>

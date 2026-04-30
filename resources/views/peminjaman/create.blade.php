@@ -19,7 +19,7 @@
                     <div class="field span-2">
                         <label class="field-label">Pilih Barang <span class="req">*</span></label>
                         @if($barang->count() > 0)
-                        <div style="max-height:320px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;padding:4px 0">
+                        <div style="height:315px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;padding:4px 0">
                             @foreach($barang as $b)
                             <label class="check" style="padding:10px 14px;background:var(--bg-muted);border-radius:8px;display:flex;gap:12px;cursor:pointer;transition:background 160ms">
                                 <input type="checkbox" name="barang_ids[]" value="{{ $b->id }}" {{ in_array($b->id, old('barang_ids', [])) ? 'checked' : '' }}>

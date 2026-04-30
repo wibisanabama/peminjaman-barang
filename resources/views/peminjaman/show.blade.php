@@ -19,6 +19,7 @@
 
     <div class="card" style="margin-bottom:20px">
         <div class="card-head"><div class="card-title-wrap"><h3 class="card-title">Daftar Barang</h3></div></div>
+        <div style="height:175px;overflow-y:auto">
         @foreach($peminjaman->detailPeminjaman as $d)
         <div class="item-row">
             <div class="item-icon" style="background:{{ $d->status==='dikembalikan' ? 'var(--success-soft)' : 'var(--warning-soft)' }};color:{{ $d->status==='dikembalikan' ? 'var(--success)' : 'var(--warning)' }}">
@@ -35,6 +36,7 @@
             <span class="badge {{ $d->status==='dikembalikan' ? 'success' : 'warning' }}">{{ ucfirst($d->status) }}</span>
         </div>
         @endforeach
+        </div>
     </div>
 
     @if(!$peminjaman->tgl_kembali)

@@ -1,6 +1,6 @@
 @extends('layouts.app', ['header' => 'Edit Barang', 'title' => 'Edit Barang - Inventory'])
 @section('content')
-<div style="max-width:640px">
+<div>
     <a href="{{ route('barang.index') }}" class="btn btn--ghost btn--sm" style="margin-bottom:20px">← Kembali</a>
     <div class="card">
         <div class="card-head"><div class="card-title-wrap"><h3 class="card-title">Edit Barang</h3></div></div>
