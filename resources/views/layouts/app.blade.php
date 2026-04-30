@@ -108,7 +108,7 @@
             </main>
 
             <footer class="d-footer">
-                <span>© {{ date('Y') }} Inventory — Sistem Peminjaman Barang</span>
+                <span>© 2026 Inventory - All rights reserved</span>
             </footer>
         </div>
     </div>
